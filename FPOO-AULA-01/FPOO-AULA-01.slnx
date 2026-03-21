@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../FPOO-AULA-03/FPOO-AULA-03.csproj" Id="48098af3-32e9-47c5-8336-0cead8b0f48f" />
+  <Project Path="../FPOO-AULA-04/FPOO-AULA-04.csproj" Id="0511abd6-f0a1-4e9e-b4a5-f2443a6ef169" />
+  <Project Path="FPOO-AULA-01/FPOO-AULA-01.csproj" />
+  <Project Path="FPOO-AULA-02/FPOO-AULA-02.csproj" />
+</Solution>
