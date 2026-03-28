@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using WebAPI.Data;
+using WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,13 +36,17 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>()
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
 
+
+// 6. Configurar o serviço de email (opcional, mas recomendado para funcionalidades de notificação por email)
+builder.Services.AddScoped<EmailService>(); // Registra o serviço de email para injeção de dependência, permitindo que ele seja utilizado em controladores ou outros serviços da API para enviar emails de forma fácil e integrada com as configurações definidas no arquivo appsettings.json.
+
 var app = builder.Build();
 
 app.MapOpenApi(); // Mapeia as rotas para os endpoints de documentação OpenAPI, permitindo que os clientes da API possam acessar a documentação interativa da API, facilitando o entendimento dos recursos disponíveis, os parâmetros esperados e as respostas retornadas pela API, além de fornecer uma interface amigável para testar os endpoints diretamente a partir da documentação.
 
 app.MapScalarApiReference(options =>
 {
-    options.WithTitle("WebAPI - Matheus Conceicion")
+    options.WithTitle("WebAPI - Leonardo Henrique")
            .WithTheme(ScalarTheme.Moon);
 }); // Mapeia as rotas para os endpoints de referência da API usando o Scalar, permitindo que os clientes da API possam acessar uma interface de referência interativa e personalizada para explorar os recursos da API, facilitando o entendimento dos endpoints disponíveis, os parâmetros esperados e as respostas retornadas pela API, além de fornecer uma experiência de usuário aprimorada para a documentação da API.
 
